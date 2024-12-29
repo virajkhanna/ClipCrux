@@ -8,6 +8,12 @@ ClipCrux is your ultimate solution for turning lengthy video content into sleek,
 4. Wait for the summary to be generated.
 5. Click on the "Download" button to download the summary.
 
+### While using source code, note:-
+1. Make sure to adhere to the License
+2. Download or build FFMpeg binaries for your operating system, and put them in the location "ffmpeg/bin/" (both ffmpeg and ffprobe)
+3. Run the below command (if you have composer) in the same directory to generate the autoload files
+<pre>composer require php-ffmpeg/php-ffmpeg</pre>
+
 ### Sample Videos
 Sample Videos: [Andrew Ng - The Rise of Agentic Workflows in AI](https://cornflowerblue-cod-625159.hostingersite.com/demo_videos/test_video1.mp4)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Introducing NVIDIA Jetson Orin™ Nano Super - The World's Most Affordable Generative AI Computer](https://cornflowerblue-cod-625159.hostingersite.com/demo_videos/test_video2.mp4)  
