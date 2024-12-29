@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<head>
+    <title>ClipCrux - your ultimate solution to work smarter, not harder!</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head> 
+<body>
+    <script>
+        function submitForm(event) {
+            event.preventDefault();
+            var form = document.getElementById('form');
+            var formData = new FormData(form);
+
+            var resultDiv = document.getElementById('summary');
+            document.getElementById('how-to-use').classList.add('hidden');
+            
+            document.getElementById('summary1').classList.remove('hidden');
+            resultDiv.innerText = 'Processing... Please wait. This can take a minute or two, depending on the complexity of the video...';   
+
+            fetch('/summary.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                if (data.trim()) {
+                    resultDiv.innerText = data;
+                    document.getElementById('copy').classList.remove('hidden');
+                } else {
+                    resultDiv.innerText = 'No summary available. Please check the file or try again.';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                resultDiv.innerText = 'An error occurred. Please try again by refreshing the page.';
+            });
+        }
+
+        function copyToClipboard() {
+            var copyText = document.getElementById('summary').innerText;
+            if (copyText.trim() === '') {
+                alert('No summary to copy!');
+                return;
+            }
+            navigator.clipboard.writeText(copyText)
+                .then(() => {
+                    alert('Copied Summary to clipboard!');
+                })
+                .catch(err => {
+                    console.error('Error:', err);
+                    alert('Failed to copy Summary to clipboard!');
+                });
+        }
+    </script>
+    <center>
+        <br>
+        <div class="typed-out">
+            <h1><span class="green">Clip</span><span class="blue">Crux</span> - your ultimate solution to work smarter, not harder!</h1>
+        </div>
+        <form onsubmit="return submitForm(event);" id="form">
+            <br>
+            <input type="file" id="fileSelect" name="video" hidden accept="video/*">
+            <button type="button" class="btn btn-primary" id="fileSelectButton" onclick="document.getElementById('fileSelect').click();">Select File</button> 
+            <br><br>
+            <label for="length">Summary Length:</label>
+            <select name="length" id="length">
+                <option value="Short">Short (up to 100 words)</option>
+                <option value="Medium">Medium (up to 200 words)</option>
+                <option value="Long">Long (up to 300 words)</option>
+            </select>
+            <br>
+            <a href="#sample" style="text-decoration: none; color: white;">Download a Sample Video!</a>
+            <br>
+            <p id="selected" style="font-family: 'Georgia'; font-size: 20px;"></p>
+            <div class="hidden" id="hidden">
+                <h6 style="margin: 0; padding: 0; display: inline;">Confirm file?</h6>&nbsp;&nbsp;&nbsp;<button type="submit" class="btn btn-light" style="margin: 0; display: inline;">Confirm</button>
+            </div>
+            </form>   
+
+        <br>
+        <br>
+
+        <div id="summary1" class="hidden" style="font-family: 'Georgia'; font-size: 20px; margin-left: 15px; padding-left: 15px; backdrop-filter: blur(10px); border: 1px solid gray; width: 90%; border-radius: 10px;">
+            <p id="summary"></p>
+            <p style="font-size: 10px;">Warning: AI-generated content may be inaccurate, biased, or unsuitable for specific contexts. It may occasionally produce responses that are irrelevant, inappropriate, or unrelated to the input, and could include content on sensitive topics without context. Always verify the information and use discretion before relying on or sharing AI outputs.</p>
+            <br>
+            <button type="button" id="copy" class="btn btn-primary hidden" onclick="copyToClipboard()">Copy Summary</button>
+        </div>
+
+        <div id="how-to-use" class="use" style="font-family: 'Georgia'; font-size: 18px; margin-left: 15px; padding-left: 15px; backdrop-filter: blur(10px); border: 1px solid gray; width: 90%; border-radius: 10px; text-align: left;">
+            <u><h2>What is ClipCrux?</h2></u>
+            <p>ClipCrux is your ultimate solution for turning lengthy video content into sleek, concise summaries in no time. Whether you're a content creator, busy professional, or just looking for a fast way to digest information, ClipCrux has you covered. Enjoy its intuitive interface, lightning-fast results, and the convenience of having your summaries ready when you need them. Let ClipCrux revolutionize the way you approach video viewing today!</p>
+            <u><h3>How to use :-</h3></u>
+            <ol>
+                <li>Click on the "Select File" button to choose a video file from your device.</li>
+                <li>Choose the desired length of the summary from the dropdown menu.</li>
+                <li>Click on the "Confirm" button to submit the form.</li>
+                <li>Wait for the summary to be generated.</li>
+                <li>Click on the "Download" button to download the summary.</li>
+            </ol>
+            <p style="font-size: 10px;" id="sample">Warning: AI-generated content may be inaccurate, biased, or unsuitable for specific contexts. It may occasionally produce responses that are irrelevant, inappropriate, or unrelated to the input, and could include content on sensitive topics without context. Always verify the information and use discretion before relying on or sharing AI outputs.</p>
+        <p>Sample Videos: <a href="/demo_videos/test_video1.mp4">Andrew Ng - The Rise of Agentic Workflows in AI</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/demo_videos/test_video2.mp4">Introducing NVIDIA Jetson Orin&trade; Nano Super - The World's Most Affordable Generative AI Computer</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/demo_videos/test_video3.mp4">Goldman Sachs' 2025 AI predictions</a>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="demo_videos/test_video4.mp4">Introducing Gemini 2.0 - Our most capable AI model yet</a>
+        </p>
+        </div>
+    </center>
+    <script>
+        const fileInput = document.getElementById('fileSelect');
+        const selectedText = document.getElementById('selected');
+
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files.length > 0) {
+                selectedText.textContent = "Selected: " + fileInput.files[0].name;
+                document.getElementById('hidden').classList.remove('hidden');
+            } else {
+                selectedText.textContent = "No file selected"; 
+            }
+        });
+    </script>
+</body>
+</html>

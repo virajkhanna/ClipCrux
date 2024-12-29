@@ -1,0 +1,37 @@
+body {
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.3)), url("background.png");
+}
+
+.typed-out {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 4s steps(50, end) forwards;
+    font-size: 1.6rem;
+    width: 0;
+    font-family: 'Georgia';
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.green {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+    background-color: green !important;
+    color: white !important;
+}
+
+.blue {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline !important;
+    background-color: blue !important;
+    color: white !important;
+}
+
+.hidden {
+    display: none !important;
+}
