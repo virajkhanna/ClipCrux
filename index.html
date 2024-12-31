@@ -68,8 +68,7 @@
         <form onsubmit="return submitForm(event);" id="form">
             <br>
             <input type="file" id="fileSelect" name="video" hidden accept="video/*">
-            <button type="button" class="btn btn-primary" id="fileSelectButton" onclick="document.getElementById('fileSelect').click();">Select File</button> 
-            <br><br>
+            <button type="button" class="btn btn-primary" id="fileSelectButton" onclick="document.getElementById('fileSelect').click();">Select File</button><p>(Less than 20 MB size and 5 minutes duration)</p>
             <label for="length">Summary Length:</label>
             <select name="length" id="length" class="form-select form-select-sm" style="width: 14% !important; display: inline;">
                 <option value="Short">Short (up to 100 words)</option>
