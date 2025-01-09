@@ -22,4 +22,4 @@ Sample Videos: [Andrew Ng - The Rise of Agentic Workflows in AI](https://cornflo
 
 Warning: AI-generated content may be inaccurate, biased, or unsuitable for specific contexts. It may occasionally produce responses that are irrelevant, inappropriate, or unrelated to the input, and could include content on sensitive topics without context. Always verify the information and use discretion before relying on or sharing AI outputs.
 
-AI Usage: I used GitHub Copilot assitively in Visual Studio Code for suggestions and slight bug fixes, but I am the code's original author.
+AI Usage: I used GitHub Copilot assitively in Visual Studio Code for suggestions and slight bug fixes, and DALL-E for an AI-Generated background image, but I am the code's original author.
