@@ -18,8 +18,8 @@ ClipCrux is your ultimate solution for turning lengthy video content into sleek,
 Sample Videos: [Andrew Ng - The Rise of Agentic Workflows in AI](https://cornflowerblue-cod-625159.hostingersite.com/demo_videos/test_video1.mp4)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Introducing NVIDIA Jetson Orin™ Nano Super - The World's Most Affordable Generative AI Computer](https://cornflowerblue-cod-625159.hostingersite.com/demo_videos/test_video2.mp4)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Goldman Sachs' 2025 AI predictions](https://cornflowerblue-cod-625159.hostingersite.com/demo_videos/test_video3.mp4)  
-
-AI Usage: I used GitHub Copilot assitively in Visual Studio Code for suggestions and slight bug fixes, but I am the code's original author.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Introducing Gemini 2.0 - Our most capable AI model yet](https://cornflowerblue-cod-625159.hostingersite.com/demo_videos/test_video4.mp4)  
 
 Warning: AI-generated content may be inaccurate, biased, or unsuitable for specific contexts. It may occasionally produce responses that are irrelevant, inappropriate, or unrelated to the input, and could include content on sensitive topics without context. Always verify the information and use discretion before relying on or sharing AI outputs.
+
+AI Usage: I used GitHub Copilot assitively in Visual Studio Code for suggestions and slight bug fixes, but I am the code's original author.
