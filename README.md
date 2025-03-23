@@ -8,10 +8,12 @@ ClipCrux is your ultimate solution for turning lengthy video content into sleek,
 4. Wait for the summary to be generated.
 5. Click on the "Download" button to download the summary.
 
-### While using source code, note:-
-1. Make sure to adhere to the License
-2. Download or build FFMpeg binaries for your operating system, and put them in the location "ffmpeg/bin/" (both ffmpeg and ffprobe)
-3. Run the below command (if you have composer) in the same directory to generate the autoload files
+###### While using source code, make sure to adhere to the License
+
+### To use the source code: -
+1. Make sure you've installed PHP and can use Composer to use FFMpeg
+2. Download or build FFMpeg binaries for your operating system, and put them in the location "ffmpeg/bin/" (both ffmpeg and ffprobe) in the same folder as the source code.
+3. Run the below command (if you have composer) in the same directory to generate the autoload files for FFMpeg
 <pre>composer require php-ffmpeg/php-ffmpeg</pre>
 
 ### Sample Videos
