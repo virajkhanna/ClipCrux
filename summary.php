@@ -1,7 +1,7 @@
 <?php
 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
 ini_set('log_errors', 1);
 ini_set('error_log', dirname(__FILE__) . '/error_log.txt');
 ini_set('memory_limit', '512M');
@@ -247,16 +247,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['video']['name'])) {
     $allowedTypes = ['mp4', 'avi', 'mov', 'wmv', 'flv', '3gp', 'webm'];
     $summaryLength = $_POST['length'];
 
+    $allowed_video_mime_types = [
+        'video/mp4', 'video/x-msvideo', 'video/quicktime', 'video/x-ms-wmv',
+        'video/x-flv', 'video/webm', 'video/ogg', 'video/3gpp', 'video/3gpp2'
+    ];
+    
+    $finfo = finfo_open(FILEINFO_MIME_TYPE);
+    $mime_type = finfo_file($finfo, $_FILES['video']['tmp_name']);
+    finfo_close($finfo);
+    
+    if (in_array($mime_type, $allowed_video_mime_types)) {
+        echo "Valid video file.";
+    } else {
+        echo "Invalid file type.";
+        exit();
+    }
+    
     if (!in_array($fileType, $allowedTypes)) {
         $uploadOk = 0;
         log_error('Invalid file type: ' . $fileType);
         echo 'Sorry, only mp4, avi, mov, wmv, flv, 3gp, webm files are allowed.';
     }
 
-    if ($_FILES['video']['size'] > 15000000) { 
+    if ($_FILES['video']['size'] > 20000000) { 
         $uploadOk = 0;
         log_error('File too large: ' . $_FILES['video']['size']);
-        echo 'Sorry, your file is too large. Please upload a video of a maximum size of 15MB.';
+        echo 'Sorry, your file is too large. Please upload a video of a maximum size of 20MB.';
     }
 
     if ($_FILES['video']['error'] !== UPLOAD_ERR_OK) {
