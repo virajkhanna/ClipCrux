@@ -8,7 +8,7 @@ ClipCrux is your ultimate solution for turning lengthy video content into sleek,
 4. Wait for the summary to be generated.
 5. Click on the "Download" button to download the summary.
 
-###### While using source code, make sure to adhere to the License
+##### While using the source code of ClipCrux or any part of it, make sure to adhere to the License
 
 ### To use the source code: -
 1. Make sure you've installed PHP and can use Composer to use FFMpeg
